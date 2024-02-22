@@ -9,14 +9,19 @@ if (isset($_POST['insert_cat'])) {
 
   // Select data from the database to check if the category already exists
   $select_query = "SELECT * FROM categories WHERE category_title=?";
+
   // Prepare the SQL query
   $stmt = mysqli_prepare($con, $select_query);
+
   // Bind the category title parameter to the prepared statement
   mysqli_stmt_bind_param($stmt, "s", $category_title);
+
   // Execute the prepared statement
   mysqli_stmt_execute($stmt);
+
   // Get the result set from the executed statement
   $result_select = mysqli_stmt_get_result($stmt);
+
   // Get the number of rows in the result set
   $number = mysqli_num_rows($result_select);
 
@@ -27,10 +32,13 @@ if (isset($_POST['insert_cat'])) {
   } else {
     // If the category doesn't exist, insert it into the database
     $insert_query = "INSERT INTO categories (category_title) VALUES (?)";
+
     // Prepare the SQL query for insertion
     $stmt = mysqli_prepare($con, $insert_query);
+
     // Bind the category title parameter to the prepared statement
     mysqli_stmt_bind_param($stmt, "s", $category_title);
+    
     // Execute the prepared statement
     $result = mysqli_stmt_execute($stmt);
 
