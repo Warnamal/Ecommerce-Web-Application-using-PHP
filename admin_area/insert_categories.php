@@ -38,7 +38,7 @@ if (isset($_POST['insert_cat'])) {
 
     // Bind the category title parameter to the prepared statement
     mysqli_stmt_bind_param($stmt, "s", $category_title);
-    
+
     // Execute the prepared statement
     $result = mysqli_stmt_execute($stmt);
 
@@ -51,8 +51,7 @@ if (isset($_POST['insert_cat'])) {
 }
 ?>
 
-
-
+<h2 class="text-center">Insert Categories</h2>
 <form action="" method="post" class="mb-2">
   <div class="input-group w-90 mb-2">
     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-receipt"></i></span>

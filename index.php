@@ -1,10 +1,16 @@
+<!-- connect file -->
+<?php
+// Include the file that establishes the database connection
+include('includes/connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ecommerce Website Test</title>
+  <title>Ecommerce Website</title>
   <!-- bootstrap CSS link -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -149,21 +155,21 @@
         <li class="nav-item bg-info">
           <a class="nav-link text-light" href="#"><h4>Delivery Brand</h4></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Brand1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Brand2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Brand3</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Brand4</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Brand5</a>
-        </li>
+
+        <?php
+        $select_brand="SELECT * FROM brands";
+        $result_brands=mysqli_query($con,$select_brand);
+        // $row_data=mysqli_fetch_assoc($result_brands);
+        // echo $row_data['brand_title'];
+        while($row_data=mysqli_fetch_assoc($result_brands)){
+          $brand_title=$row_data['brand_title'];
+          $brand_id=$row_data['brand_id'];
+          echo "<li class='nav-item'>
+          <a class='nav-link text-light' href='index.php?brand=$brand_id'>$brand_title</a>
+        </li>";
+
+        }
+        ?>
         </ul>
 
         <!-- categories to be displayed -->
@@ -171,21 +177,21 @@
         <li class="nav-item bg-info">
           <a class="nav-link text-light" href="#"><h4>Categories</h4></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Categories1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Categories2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Categories3</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Categories4</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Categories5</a>
-        </li>
+
+        <?php
+        $select_category="SELECT * FROM categories";
+        $result_categories=mysqli_query($con,$select_category);
+        // $row_data=mysqli_fetch_assoc($result_brands);
+        // echo $row_data['brand_title'];
+        while($row_data=mysqli_fetch_assoc($result_categories)){
+          $category_title=$row_data['category_title'];
+          $category_id=$row_data['category_id'];
+          echo "<li class='nav-item'>
+          <a class='nav-link text-light' href='index.php?category=$category_id'>$category_title</a>
+        </li>";
+
+        }
+        ?>
         </ul>
       </div>
 
