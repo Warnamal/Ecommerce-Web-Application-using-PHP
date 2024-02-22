@@ -52,7 +52,7 @@
             <p class="text-linr text-center">Admin Name</p>
         </div>
         <div class="button text-center">
-            <button><a href="" class="navlink text-light bg-info my-1">Insert Projects</a></button>
+            <button><a href="insert_product.php" class="navlink text-light bg-info my-1">Insert Projects</a></button>
             <button><a href="" class="navlink text-light bg-info my-1">View Products</a></button>
             <button><a href="index.php?insert_category" class="navlink text-light bg-info my-1">Insert categories</a></button>
             <button><a href="" class="navlink text-light bg-info my-1">View Categories</a></button>
