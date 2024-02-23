@@ -2,6 +2,7 @@
 // Include the file that establishes the database connection
 include('../includes/connect.php');
 
+
 // Check if the form has been submitted
 if (isset($_POST['insert_brand'])) {
   // Retrieve the brand title from the form

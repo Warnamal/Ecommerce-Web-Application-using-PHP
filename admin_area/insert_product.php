@@ -1,3 +1,8 @@
+<?php
+// Include the file that establishes the database connection
+include('../includes/connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +50,16 @@
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_category" id="" class="form-select">
                     <option value="">Select a category</option>
-                    <option value="">category1</option>
+                    <?php
+                    $select_query="SELECT * FROM categories";
+                    $result_query=mysqli_query($con,$select_query);
+                    while($row=mysqli_fetch_assoc($result_query)){
+                        $category_title=$row['category_title'];
+                        $category_id=$row['category_id'];
+                        echo "<option value='$category_id'>$category_title</option>";
+                    }
+                    ?>
+                    <!-- <option value="">category1</option> -->
                 </select>
             </div>
 
@@ -53,7 +67,16 @@
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_brand" id="" class="form-select">
                     <option value="">Select a brand</option>
-                    <option value="">brand1</option>
+                    <?php
+                    $select_query="SELECT * FROM brands";
+                    $result_query=mysqli_query($con,$select_query);
+                    while($row=mysqli_fetch_assoc($result_query)){
+                        $brand_title=$row['brand_title'];
+                        $brand_id=$row['brand_id'];
+                        echo "<option value='$brand_id'>$brand_title</option>";
+                    }
+                    ?>
+                    <!-- <option value="">brand1</option> -->
                 </select>
             </div>
 
