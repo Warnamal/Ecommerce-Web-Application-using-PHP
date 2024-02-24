@@ -84,7 +84,7 @@ include('functions/common_function.php');
           <!-- fetching products -->
           <?php
           // calling function
-          getproducts();
+          get_all_products();
           get_uniqe_categories();
           get_uniqe_brands();
           ?>
