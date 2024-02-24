@@ -83,7 +83,9 @@ include('functions/common_function.php');
           <!-- fetching products -->
           <?php
           // calling function
-          getproducts()
+          getproducts();
+          get_uniqe_categories();
+          get_uniqe_brands();
           ?>
         </div>
       </div>
@@ -113,14 +115,17 @@ include('functions/common_function.php');
 
           <?php
           // calling function
-          getcategories()
+          getcategories();
           ?>
         </ul>
       </div>
 
-
-
     </div>
+  </div>
+
+  <!-- footer -->
+  <div class="bg-info p-3 text-center">
+    <p>All rights reserved © Designed by Lakshitha Warnamal</p>
   </div>
 
   <!-- bootstrap js link -->
